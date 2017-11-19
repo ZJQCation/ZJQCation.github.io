@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="约瑟夫问题：N个人围成一圈，从第一个人开始报数，数到M的人出圈；再由下一个人开始报数，数到M的人出圈；…输出依次出圈的人的编号。N，M由键盘输入。   【分析】（1）由于对于每个人只有出圈和没有圈两种状态，因此可以用布尔型标志数组存储游戏过程中每个人的状态。不妨用TRUE表示出圈，FALSE表示没有圈。（2）开始的时候，给标志数组赋初值为FALSE，即全部在圈内。（3）模拟报数游戏的过程，直到所有">
-<meta property="og:updated_time" content="2017-11-19T06:32:16.982Z">
+<meta property="og:updated_time" content="2017-11-19T06:43:57.477Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="约瑟夫问题(简)">
 <meta name="twitter:description" content="约瑟夫问题：N个人围成一圈，从第一个人开始报数，数到M的人出圈；再由下一个人开始报数，数到M的人出圈；…输出依次出圈的人的编号。N，M由键盘输入。   【分析】（1）由于对于每个人只有出圈和没有圈两种状态，因此可以用布尔型标志数组存储游戏过程中每个人的状态。不妨用TRUE表示出圈，FALSE表示没有圈。（2）开始的时候，给标志数组赋初值为FALSE，即全部在圈内。（3）模拟报数游戏的过程，直到所有">
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ZJQCation.github.io"></form>
@@ -87,32 +87,34 @@
       
         <p>约瑟夫问题：N个人围成一圈，从第一个人开始报数，数到M的人出圈；再由下一个人开始报数，数到M的人出圈；…输出依次出圈的人的编号。N，M由键盘输入。  </p>
 <p>【分析】<br>（1）由于对于每个人只有出圈和没有圈两种状态，因此可以用布尔型标志数组存储游戏过程中每个人的状态。不妨用TRUE表示出圈，FALSE表示没有圈。<br>（2）开始的时候，给标志数组赋初值为FALSE，即全部在圈内。<br>（3）模拟报数游戏的过程，直到所有的人出圈为止。  </p>
-<p><code>Program ex5_5;
-var  n,m,s,f,t : integer;
-  a : array[1..100] of boolean;     //根据题意开出数组大小
+<pre>
+Program ex;
+var  
+    n,m,s,f,t:integer;
+    a:array[1..100] of boolean;     //根据题意开出数组大小
 begin
-  readln(n,m);            //共n人，报到m出圈
-  for t := 1 to n do
-    a[t] := false;
-  f := 0;    t := 0;    s := 0;        //刚开始所有变量默认值也是0
+  readln(n,m);                    //共n人，报到m出圈
+   for t:=1 to n do
+     a[t]:=false;
+  f:=0;  t:=0;  s:=0;                //刚开始所有变量默认值也是0
   repeat
-    t := t+1;            //逐个枚举圈中的所有位置
-    if t=n+1 then t := 1;        //数组模拟环状，最后一个与第一个相连
-    if a[t]=false then s := s+1;    //第t个位置上有人则报数
-    if s=m then            //当前报的数是m
+    t:=t+1;                  //逐个枚举圈中的所有位置
+    if t=n+1 then t:=1;                //数组模拟环状，最后一个与第一个相连
+    if a[t]=false then s:=s+1;            //第t个位置上有人则报数
+    if s=m then                    //当前报的数是m
      begin
-       s := 0;            //计数器清零
-       write(t,′′);            //输出出圈人的编号
-       a[t] := true;            //此处的人已出圈，设置为空
-       f := f+1;            //出圈的人数增加一个
-   end;
-  until f=n;            //直到所有的人都出圈为止
-end.</code></p>
-
+       s:=0;                    //计数器清零
+       write(t,' ');            //输出出圈人的编号
+       a[t]:= true;            //此处的人已出圈，设置为空
+       f:=f+1;                    //出圈的人数增加一个
+     end;
+  until f=n;                       //直到所有的人都出圈为止
+end.
+</pre>
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cja6e0jjq0007tkut7diidw6g" class="article-share-link">Delen</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cja6e0jjq0007tkut7diidw6g" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -123,7 +125,7 @@ end.</code></p>
   
   
     <a href="/2017/11/02/testtt/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ouder</strong>
+      <strong class="article-nav-caption">Ancien</strong>
       <div class="article-nav-title">testtt</div>
     </a>
   
@@ -146,7 +148,7 @@ end.</code></p>
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archieven</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
@@ -156,7 +158,7 @@ end.</code></p>
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recente berichten</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
         
@@ -193,7 +195,7 @@ end.</code></p>
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
