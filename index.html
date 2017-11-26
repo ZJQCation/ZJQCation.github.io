@@ -48,9 +48,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ZJQCation.github.io"></form>
@@ -60,6 +60,67 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-选择排序" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/26/选择排序/" class="article-date">
+  <time datetime="2017-11-26T05:22:00.000Z" itemprop="datePublished">2017-11-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/26/选择排序/">选择排序</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>不妨从大到小排序。</p>
+<p><strong>### 选择排序 ###</strong>：</p>
+<p>按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，<br>第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。</p>
+<p>排序效率：$$O(n^2)$$</p>
+<p>$$1+2+…+(n-1)=\frac{n(n-1)}{2}$$</p>
+<p><strong><br>优化</strong>后的选择排序<br>由于每次交换两个数据元素要执行3个语句，过多的交换必定要花费许多时间。<br>改进方案是在内循环的比较中找出最大元素的下标，在内循环结束时，才考虑是否交换.</p>
+<pre>
+program SelectionSort;
+var a:array[1..1000]of longint;
+    i,j,t,k:longint;
+begin
+  readln(n);
+  for i:=1 to n do read(a[i]);
+  for i:=1 to n-1 do
+    begin
+      k:=i;
+      for j:=i+1 to n do
+        if a[k]>a[j] then k:=j;
+      if k<>i then 
+       begin
+         t:=a[k];a[k]:=a[i];a[i]:=t;
+       end;
+    end;
+   for i:=1 to n do write(a[i],' ');
+end.
+</pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ZJQCation.github.io/2017/11/26/选择排序/" data-id="cjagcbngu000514ut233vwfv5" class="article-share-link">Partager</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-约瑟夫问题-简" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -112,7 +173,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cja6ejq140006w4utn9rnpsj6" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cjagcbnh6000814ut28xs368j" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -157,7 +218,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/30/十八岁/" data-id="cja6ejq0v0004w4ut6x73kr2d" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/30/十八岁/" data-id="cjagcbngy000614utlidh2uwf" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -202,7 +263,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/MarkdownPad2-简单操作/" data-id="cja6ejq0e0000w4utisflff3k" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/MarkdownPad2-简单操作/" data-id="cjagcbng3000114utzv3vj1r8" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -246,7 +307,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/摘抄/" data-id="cja6ejq110005w4utg5zwd2mw" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/摘抄/" data-id="cjagcbnh1000714ut0263igky" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -285,7 +346,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/五班蹭饭图/" data-id="cja6ejq0s0003w4ut2ipejyhj" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/五班蹭饭图/" data-id="cjagcbng7000214utq7rbifiw" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -324,7 +385,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/终于建好博客啦/" data-id="cja6ejq160007w4ut8fgpwnds" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/终于建好博客啦/" data-id="cjagcbngp000414ut3650uiwi" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -361,7 +422,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/haha/" data-id="cja6ejq0l0001w4ut3gin678p" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/haha/" data-id="cjagcbnfx000014utrewm7ml8" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -406,7 +467,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/hello-world/" data-id="cja6ejq0q0002w4uteeiq4z19" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/hello-world/" data-id="cjagcbnga000314ut6x79dhz1" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -441,9 +502,13 @@ end.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
+    <h3 class="widget-title">Articles récents</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/26/选择排序/">选择排序</a>
+          </li>
         
           <li>
             <a href="/2017/11/19/约瑟夫问题-简/">约瑟夫问题(简)</a>
@@ -461,10 +526,6 @@ end.
             <a href="/2017/07/25/摘抄/">摘抄</a>
           </li>
         
-          <li>
-            <a href="/2017/07/25/五班蹭饭图/">五班蹭饭图</a>
-          </li>
-        
       </ul>
     </div>
   </div>
@@ -478,7 +539,7 @@ end.
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
