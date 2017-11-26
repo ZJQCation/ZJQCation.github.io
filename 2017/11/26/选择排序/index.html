@@ -5,16 +5,16 @@
   
   <title>选择排序 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="不妨从大到小排序。 ### 选择排序 ###： 按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。 排序效率：$$O(n^2)$$ $$1+2+…+(n-1)=\frac{n(n-1)}{2}$$ 优化后的选择排序由于每次交换两个数据元素要执行3个语句，过多的交换必定">
+  <meta name="description" content="不妨从大到小排序。 #选择排序  # 按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。 排序效率：$$O(n^2)$$ $$1+2+…+(n-1)=\frac{n(n-1)}{2}$$ 优化后的选择排序由于每次交换两个数据元素要执行3个语句，过多的交换必定要花费许多">
 <meta property="og:type" content="article">
 <meta property="og:title" content="选择排序">
 <meta property="og:url" content="http://ZJQCation.github.io/2017/11/26/选择排序/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="不妨从大到小排序。 ### 选择排序 ###： 按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。 排序效率：$$O(n^2)$$ $$1+2+…+(n-1)=\frac{n(n-1)}{2}$$ 优化后的选择排序由于每次交换两个数据元素要执行3个语句，过多的交换必定">
-<meta property="og:updated_time" content="2017-11-26T05:44:33.718Z">
+<meta property="og:description" content="不妨从大到小排序。 #选择排序  # 按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。 排序效率：$$O(n^2)$$ $$1+2+…+(n-1)=\frac{n(n-1)}{2}$$ 优化后的选择排序由于每次交换两个数据元素要执行3个语句，过多的交换必定要花费许多">
+<meta property="og:updated_time" content="2017-11-26T05:46:36.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="选择排序">
-<meta name="twitter:description" content="不妨从大到小排序。 ### 选择排序 ###： 按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。 排序效率：$$O(n^2)$$ $$1+2+…+(n-1)=\frac{n(n-1)}{2}$$ 优化后的选择排序由于每次交换两个数据元素要执行3个语句，过多的交换必定">
+<meta name="twitter:description" content="不妨从大到小排序。 #选择排序  # 按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。 排序效率：$$O(n^2)$$ $$1+2+…+(n-1)=\frac{n(n-1)}{2}$$ 优化后的选择排序由于每次交换两个数据元素要执行3个语句，过多的交换必定要花费许多">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -52,9 +52,9 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ZJQCation.github.io"></form>
@@ -86,7 +86,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>不妨从大到小排序。</p>
-<p><strong>### 选择排序 ###</strong>：</p>
+<p>#<br>选择排序  #</p>
 <p>按位置排序，第一步将第1个数与后面的n-1个数依次比较，若发现比它大的则交换，第一轮排序后保证第一个位置为最大数，<br>第二轮排序后第二个位置为次大数……完成n-1轮排序即可得到降序数列。</p>
 <p>排序效率：$$O(n^2)$$</p>
 <p>$$1+2+…+(n-1)=\frac{n(n-1)}{2}$$</p>
@@ -114,7 +114,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/26/选择排序/" data-id="cjagcbngu000514ut233vwfv5" class="article-share-link">Partager</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/26/选择排序/" data-id="cjagcbngu000514ut233vwfv5" class="article-share-link">Delen</a>
       
       
     </footer>
@@ -125,7 +125,7 @@ end.
   
   
     <a href="/2017/11/19/约瑟夫问题-简/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
+      <strong class="article-nav-caption">Ouder</strong>
       <div class="article-nav-title">约瑟夫问题(简)</div>
     </a>
   
@@ -148,7 +148,7 @@ end.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
+    <h3 class="widget-title">Archieven</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
@@ -158,7 +158,7 @@ end.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
+    <h3 class="widget-title">Recente berichten</h3>
     <div class="widget">
       <ul>
         
@@ -195,7 +195,7 @@ end.
   <div class="outer">
     <div id="footer-info" class="inner">
       &copy; 2017 John Doe<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
 </footer>
