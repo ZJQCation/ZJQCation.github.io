@@ -50,7 +50,7 @@
         
           <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <a id="nav-search-btn" class="nav-icon" title="Søk"></a>
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
       </nav>
       <div id="search-form-wrap">
         <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://ZJQCation.github.io"></form>
@@ -60,6 +60,87 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-筛法求素数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/11/29/筛法求素数/" class="article-date">
+  <time datetime="2017-11-29T10:49:07.000Z" itemprop="datePublished">2017-11-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/11/29/筛法求素数/">筛法求素数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>编制用筛选法求1-n(n≤200)以内素数的程序。</p>
+<p>【分析】<br>由希腊著名数学家埃拉托色尼提出的所谓“筛选法”，步骤如下：</p>
+<ol>
+<li>将所有候选数放入筛中；</li>
+<li>找筛中最小数（必为素数）next，放入集合primes中；</li>
+<li>将next的所有倍数从筛中筛去；</li>
+<li>重复②～④直到筛空。</li>
+</ol>
+<p>编程时，用集合变量sieve表示筛子，用集合primes存放所有素数。</p>
+<pre>
+program ex7_4;
+const n=200;
+var  sieve,primes:set of 2..n;
+     next,j:integer;
+begin
+  sieve:=[2..n];
+    //将所有候选数放入筛中
+  primes:=[];
+    //素数集合置空
+  next:=2;
+  repeat
+    //找筛sieve中最小一个数
+    while not(next in sieve) and(next<=n)do 10="0" next:="succ(next);" primes:="primes+[next];" 将最小数放入素数集合中="" j:="next;" while="" j<="n" do="" 将这个素数的倍数从筛中删去="" begin="" sieve:="sieve-[j];" end="" until="" sieve="[];" for="" to="" n="" 打印出所有素数="" if="" next="" in="" primes="" then="" write(next:5);="" j="" mod="" writeln;="" end;="" end.="" <="" pre="">
+
+<h2 id="数组实现"><a href="#数组实现" class="headerlink" title="数组实现"></a>数组实现</h2><p>集合范围太小了</p>
+<pre>
+Const  N=5000;
+Var  a:array[1..n] of boolean;
+     i,j,t:integer;
+Begin
+  Fillchar(a,sizeof(a),true);
+  a[1]:=False;
+  for i:=2 to Trunc(sqrt(N)) do
+     if a[i] then
+       for j := 2 to N div i do
+         a[i*j]:=False;
+   t:=0;
+   for i:=2 to N do
+      if a[i] then
+         Begin
+             write(i:5);
+             inc(t);
+             if t mod 5=0 then writeln
+          end;
+End.
+</pre></=n)do></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ZJQCation.github.io/2017/11/29/筛法求素数/" data-id="cjakxqjt10007lsuttcboea9a" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-冒泡排序" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -114,7 +195,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/29/冒泡排序/" data-id="cjaktbezf0003qkutzvfi6qh2" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/29/冒泡排序/" data-id="cjakxqjsu0005lsut71yqn9fu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -173,7 +254,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/26/选择排序/" data-id="cjaktbezz0009qkutmd80zk2i" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/26/选择排序/" data-id="cjakxqjt80008lsutz8b5ksvb" class="article-share-link">Share</a>
       
       
     </footer>
@@ -234,7 +315,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cjaktbezx0008qkut22jiuts8" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cjakxqjto000alsutn0avs068" class="article-share-link">Share</a>
       
       
     </footer>
@@ -279,7 +360,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/30/十八岁/" data-id="cjaktbezl0005qkutpj8awaou" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/30/十八岁/" data-id="cjakxqjso0004lsutgct0hkyu" class="article-share-link">Share</a>
       
       
     </footer>
@@ -324,7 +405,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/MarkdownPad2-简单操作/" data-id="cjaktbez30000qkutjt8cind6" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/MarkdownPad2-简单操作/" data-id="cjakxqjsl0002lsutr9yvqw2q" class="article-share-link">Share</a>
       
       
     </footer>
@@ -368,7 +449,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/摘抄/" data-id="cjaktbezo0006qkutkx0sr7qw" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/摘抄/" data-id="cjakxqjsy0006lsutv8wmzhre" class="article-share-link">Share</a>
       
       
     </footer>
@@ -407,7 +488,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/五班蹭饭图/" data-id="cjaktbez90001qkutrulookn7" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/五班蹭饭图/" data-id="cjakxqjsh0001lsutwqi4wi3n" class="article-share-link">Share</a>
       
       
     </footer>
@@ -446,7 +527,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/终于建好博客啦/" data-id="cjaktbezs0007qkuthya5ltic" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/终于建好博客啦/" data-id="cjakxqjta0009lsuto8zkknig" class="article-share-link">Share</a>
       
       
     </footer>
@@ -483,52 +564,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/haha/" data-id="cjaktbezh0004qkutqjgq3snr" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/25/hello-world/" class="article-date">
-  <time datetime="2017-07-25T06:08:29.271Z" itemprop="datePublished">2017-07-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/hello-world/" data-id="cjaktbezd0002qkutxq5sslq9" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/haha/" data-id="cjakxqjs90000lsutf7cbgkcc" class="article-share-link">Share</a>
       
       
     </footer>
@@ -539,6 +575,10 @@ end.
 
   
 
+
+  <nav id="page-nav">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">__('next') &raquo;</a>
+  </nav>
 </section>
         
           <aside id="sidebar">
@@ -553,7 +593,7 @@ end.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Arkiv</h3>
+    <h3 class="widget-title">Archives</h3>
     <div class="widget">
       <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
@@ -563,9 +603,13 @@ end.
   
     
   <div class="widget-wrap">
-    <h3 class="widget-title">Siste innlegg</h3>
+    <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/11/29/筛法求素数/">筛法求素数</a>
+          </li>
         
           <li>
             <a href="/2017/11/29/冒泡排序/">冒泡排序</a>
@@ -581,10 +625,6 @@ end.
         
           <li>
             <a href="/2017/07/30/十八岁/">十八岁</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/25/MarkdownPad2-简单操作/">MarkdownPad2 简单操作</a>
           </li>
         
       </ul>
