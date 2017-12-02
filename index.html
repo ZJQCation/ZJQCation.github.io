@@ -61,6 +61,114 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-高精度计算" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/12/02/高精度计算/" class="article-date">
+  <time datetime="2017-12-02T05:06:35.000Z" itemprop="datePublished">2017-12-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/12/02/高精度计算/">高精度计算</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="高精度计算需要处理好以下问题"><a href="#高精度计算需要处理好以下问题" class="headerlink" title="高精度计算需要处理好以下问题"></a>高精度计算需要处理好以下问题</h2><ul>
+<li>数据的接收与存储</li>
+<li>计算结果位数的确定</li>
+<li>进位、借位、商和余数的处理</li>
+<li>运算结果的输出</li>
+</ul>
+<h3 id="数据的接收方法和存储方法"><a href="#数据的接收方法和存储方法" class="headerlink" title="数据的接收方法和存储方法"></a>数据的接收方法和存储方法</h3><p>采用字符串方式输入，利用字符串函数和操作运算，将每一位存入数组。</p>
+<pre>
+Type  numtype=array[1..500] of word;             //整数数组类型
+Var   a,b:numtype;                 //a和b为整数数组
+      la,lb:integer;                 //整数数组a的长度和b的长度
+      s:string;                     //输入数串
+</pre>
+将数串s转化为整数数组a
+<pre>
+readln(s);
+la:=length(s);
+for i:=1 to la do a[la-i+1]:=ord(s[i])-ord('0');   //此为正向存储
+</pre>
+
+<p>还可以直接循环存入数组</p>
+<pre>
+Type arr=array[1..500] of integer;
+prucedure readdata(var int:arr);
+  var ch:char;
+  i,k:integer;
+begin
+  read(ch); k:=0;
+  while ch in['0'..'9'] do 
+   begin
+     inc(k);
+     int[k]:=ord(ch)-ord('0');         //此为反向存储
+     read(ch);
+   end;
+end;
+</pre>
+
+
+<p><img src="https://i.imgur.com/AxBV5t0.png" alt=""></p>
+<h3 id="计算结果位数的确定"><a href="#计算结果位数的确定" class="headerlink" title="计算结果位数的确定"></a>计算结果位数的确定</h3><ul>
+<li>两数之和的位数最大为较大的数的位数加1。</li>
+<li>乘积的位数最大为两个因子的位数之和。</li>
+</ul>
+<h3 id="进位、借位、商和余数的处理"><a href="#进位、借位、商和余数的处理" class="headerlink" title="进位、借位、商和余数的处理"></a>进位、借位、商和余数的处理</h3><p>加法进位</p>
+<pre>
+C[i]:=A[i]+B[i];
+if C[i]>=10 then 
+begin 
+  C[i]:=C[i] mod 10;
+  C[i+1]:=C[i+1]+1
+end;
+</pre>
+
+<p>减法借位</p>
+<pre>
+if a[i]<b[i] then="" begin="" a[i+1]:="a[i+1]-1;" a[i]:="a[i]+10;" end="" c[i]:="a[i]-b[i];" <="" pre="">
+
+<p>乘法进位</p>
+<pre>
+C[i+j-1]:= A[i]*B[j]+ x DIV 10+ C[i+j-1];
+x:= C[i+j-1] div 10;
+C[i+j-1]:= C[i+j-1] mod 10
+</pre>
+
+<p>商和余数处理:</p>
+<p>视被除数和除数的位数情况进行处理.</p>
+<h3 id="运算结果的输出"><a href="#运算结果的输出" class="headerlink" title="运算结果的输出"></a>运算结果的输出</h3><p>输出要注意3点</p>
+<ol>
+<li>数据是正向储存，用递减循环输出；数据是反向储存，用递增循环输出</li>
+<li>TP是先定义，后运算的。无法根据机器的运算的结果来定义数组的大小，所以一般定义数组大一些，这样就增加在有效数字前有一些无用的0操作。在输出时这些在有效数字前无用的0不能输出。一般在输出有效数字前采用:<code>while a[i]=0 do i:=i-1</code>(正向储存) 或<code>while a[i]=0 do i:=i+1</code>(反向储存)</li>
+<li>如是用一个字节储存多位数字，输出时要用0来补位。</li>
+</ol>
+</b[i]></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://ZJQCation.github.io/2017/12/02/高精度计算/" data-id="cjaoyjgon0007uwutb558xvyr" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-筛法求素数" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/11/29/筛法求素数/" class="article-date">
@@ -132,7 +240,7 @@ End.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/29/筛法求素数/" data-id="cjakxqjt10007lsuttcboea9a" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/29/筛法求素数/" data-id="cjaoyjgoj0006uwutpfaktfzm" class="article-share-link">Share</a>
       
       
     </footer>
@@ -195,7 +303,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/29/冒泡排序/" data-id="cjakxqjsu0005lsut71yqn9fu" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/29/冒泡排序/" data-id="cjaoyjgoa0003uwuteolw8lqp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -254,7 +362,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/26/选择排序/" data-id="cjakxqjt80008lsutz8b5ksvb" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/26/选择排序/" data-id="cjaoyjgoy000buwutzbg926ze" class="article-share-link">Share</a>
       
       
     </footer>
@@ -315,7 +423,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cjakxqjto000alsutn0avs068" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/11/19/约瑟夫问题-简/" data-id="cjaoyjgov0009uwutyfpe6lgj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -360,7 +468,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/30/十八岁/" data-id="cjakxqjso0004lsutgct0hkyu" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/30/十八岁/" data-id="cjaoyjgob0004uwut3gi9lpj0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -405,7 +513,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/MarkdownPad2-简单操作/" data-id="cjakxqjsl0002lsutr9yvqw2q" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/MarkdownPad2-简单操作/" data-id="cjaoyjgnx0000uwutcl1j1ay3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +557,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/摘抄/" data-id="cjakxqjsy0006lsutv8wmzhre" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/摘抄/" data-id="cjaoyjgox000auwuth9nzy816" class="article-share-link">Share</a>
       
       
     </footer>
@@ -488,7 +596,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/五班蹭饭图/" data-id="cjakxqjsh0001lsutwqi4wi3n" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/五班蹭饭图/" data-id="cjaoyjgog0005uwutwr9minb3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -527,44 +635,7 @@ end.
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/终于建好博客啦/" data-id="cjakxqjta0009lsuto8zkknig" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-haha" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/07/25/haha/" class="article-date">
-  <time datetime="2017-07-25T06:37:36.000Z" itemprop="datePublished">2017-07-25</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/25/haha/">haha</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>try it……</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://ZJQCation.github.io/2017/07/25/haha/" data-id="cjakxqjs90000lsutf7cbgkcc" class="article-share-link">Share</a>
+      <a data-url="http://ZJQCation.github.io/2017/07/25/终于建好博客啦/" data-id="cjaoyjgot0008uwutls1dlwvq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -595,7 +666,7 @@ end.
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">December 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">November 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
     </div>
   </div>
 
@@ -606,6 +677,10 @@ end.
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2017/12/02/高精度计算/">高精度计算</a>
+          </li>
         
           <li>
             <a href="/2017/11/29/筛法求素数/">筛法求素数</a>
@@ -621,10 +696,6 @@ end.
         
           <li>
             <a href="/2017/11/19/约瑟夫问题-简/">约瑟夫问题(简)</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/30/十八岁/">十八岁</a>
           </li>
         
       </ul>
